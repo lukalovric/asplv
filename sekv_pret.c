@@ -16,7 +16,7 @@ int main() {
     time_t  t1, t2;
     srand((unsigned)time(NULL));
     int n = rand() % 1000000;
-    float* V = (int*)malloc(n * sizeof(int));
+    float* V = (float*)malloc(n * sizeof(float));
     if (V == NULL) {
         return -1;
     }
@@ -35,7 +35,7 @@ int main() {
         printf("Element nije pronaden.\n");
     }
     else {
-        printf("Element pronaden na %d.\n", result);
+        printf("Element na indexu %d.\n", result);
     }
     printf("Vrijeme trajanja je % dms\n", t2 - t1);
     printf("broj elemenata %d", n);

@@ -2,6 +2,20 @@
 #include <stdlib.h>
 #include <time.h>
 
+void bubble_sort(float V[], int n) {
+    int i, j;
+    float temp;
+
+    for (i = 0; i < n - 1; i++) {
+        for (j = 0; j < n - i - 1; j++) {
+            if (V[j] > V[j + 1]) {
+                temp = V[j];
+                V[j] = V[j + 1];
+                V[j + 1] = temp;
+            }
+        }
+    }
+}
 
 int bin_pret(float V[], int n, float x) {
     int left = 0;
@@ -21,8 +35,8 @@ int bin_pret(float V[], int n, float x) {
 int main() {
     time_t  t1, t2;
     srand((unsigned)time(NULL));
-    int n = rand() % 1000000;  // size of array
-    float* V = (int*)malloc(n * sizeof(int));
+    int n = rand() % 1000;
+    float* V = (float*)malloc(n * sizeof(float));
     if (V == NULL) {
         return -1;
     }
@@ -33,6 +47,7 @@ int main() {
         V[i] = rand() % n;
     }
 
+    bubble_sort(V, n);
     t1 = clock();
     int result = bin_pret(V, n, x);
     t2 = clock();
